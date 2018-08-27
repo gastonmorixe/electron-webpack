@@ -11,7 +11,7 @@ export async function configureTypescript(configurator: WebpackConfigurator) {
   // add after js
   configurator.extensions.splice(1, 0, ".ts", ".tsx")
 
-  const isTranspileOnly = configurator.isTest || (hasTsChecker && !configurator.isProduction)
+  const isTranspileOnly = true // configurator.isTest || (hasTsChecker && !configurator.isProduction) 
 
   const tsConfigFile = await getFirstExistingFile([path.join(configurator.sourceDir, "tsconfig.json"), path.join(configurator.projectDir, "tsconfig.json")], null)
   // check to produce clear error message if no tsconfig.json
